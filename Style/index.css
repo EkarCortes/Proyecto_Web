@@ -1,0 +1,132 @@
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.containerMain {
+    background-image: url('/IMG/house.jpg');
+    background-size: cover;
+    height: 100%;
+}
+
+.containerNav{
+    display: flex;
+    justify-content: space-between;
+}
+
+.containerNavInfo{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.containerNavInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo img{
+    width: 100px;
+    height: 100px;
+}
+
+.icons a{
+    color: white;
+    margin: 2px;
+}
+
+.login{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.login img{
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+}
+
+.navOptions{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    
+}
+.navOptions ul{
+    display: flex;
+    flex-direction: row;
+}
+.navOptions ul li{
+    margin-top: 15px;
+    margin-right: 10px;
+    list-style: none;
+    text-decoration: none;
+}
+.navOptions ul li a{
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+
+
+/* QUIENES SOMOS */
+
+.AboutUs {
+    padding: 20px;
+    background-color: #ffffff;
+    margin: 20px;
+    border-radius: 10px;
+    height: 400px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.AboutUs h2 {
+    text-align: center;
+    color: #003366;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.AboutUs .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.AboutUs .text {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.AboutUs .text p {
+    text-align: justify;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.AboutUs .social-icon {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.AboutUs .social-icon img {
+    height: 30px;
+    width: 30px;
+}
+
+.AboutUs .image {
+    flex: 1;
+    text-align: center;
+}
+
+.AboutUs .image img {
+    max-width: 70%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
