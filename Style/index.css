@@ -1,12 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .containerMain {
-    background-image: url('/IMG/house.jpg');
+    background-image: url('/IMG/house_2.jpg');
     background-size: cover;
     height: 100%;
 }
@@ -73,6 +75,17 @@ html, body {
     text-decoration: none;
 }
 
+.search{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.search input{
+    height: 20px;
+    border-radius: 10px 10px 10px 10px;
+}
 
 
 /* QUIENES SOMOS */
@@ -86,10 +99,10 @@ html, body {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
-.AboutUs h2 {
+.AboutUs h1 {
     text-align: center;
     color: #003366;
-    font-size: 24px;
+    font-size: 30px;
     margin-bottom: 20px;
 }
 
@@ -129,4 +142,27 @@ html, body {
     max-width: 70%;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.AboutUs .image img:hover {
+    transform: scale(1.1);
+    transition: ease 0.1s;
+
+}
+
+.hero{
+
+    /* background-image: url('/IMG/hero.jpg'); */
+    background-size: cover;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    margin-top: 155px;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+    
+
 }
