@@ -77,16 +77,19 @@ html, body {
     text-decoration: none;
 }
 
-.search{
+.search {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
     margin-top: 10px;
     margin-right: 10px;
 }
-.search input{
-    height: 20px;
-    border-radius: 10px 10px 10px 10px;
+
+.search input {
+    border:none ;
+    height: 28px;
+    width: 200px;
+    border-radius: 6px;
 }
 
 
@@ -168,3 +171,4 @@ html, body {
     
 
 }
+

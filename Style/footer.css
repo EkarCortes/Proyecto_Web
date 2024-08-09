@@ -18,6 +18,7 @@
 .info {
     display: flex;
     flex-direction: column;
+    justify-content: start;
     align-items: flex-start;
 }
 
@@ -63,7 +64,7 @@
 
 .form input,
 .form textarea {
-    width: 100%;
+    width: 85%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -77,6 +78,14 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+  
+}
+
+.form-Email {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 footer {
@@ -87,4 +96,18 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
+}
+
+.form h3 {
+    text-align: center;
+}
+
+.icon-footer{
+    display: flex;
+    flex-direction: row;
+}
+.icon-footer i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -57,15 +57,35 @@ $pdo = null;
     <link rel="stylesheet" href="/Style/index.css">
     <link rel="stylesheet" href="/Style/properties.css">
     <link rel="stylesheet" href="/Style/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
-        .containerMain { background-image: url('<?php echo $bannerImageUrl; ?>');}
-        .container-F { background-color: <?php echo $colorFooter; ?>;}
-        .container-Properties { background-color: <?php echo $colorContainer1_3; ?>;}
-        .container-Sale {background-color: <?php echo $colorContainer2_4; ?>;}
-        .logo a img { content: url('<?php echo $iconPrincipalUrl; ?>');}
+        .containerMain {
+            background-image: url('<?php echo $bannerImageUrl; ?>');
+        }
+
+        .container-F {
+            background-color: <?php echo $colorFooter; ?>;
+        }
+
+        .container-Properties {
+            background-color: <?php echo $colorContainer1_3; ?>;
+        }
+
+        .container-Sale {
+            background-color: <?php echo $colorContainer2_4; ?>;
+        }
+
+        .logo a img {
+            content: url('<?php echo $iconPrincipalUrl; ?>');
+        }
+
+        .footer_DR {
+            background-color: <?php echo $colorContainer1_3; ?>;
+        }
     </style>
 </head>
+
 <body>
     <div class="containerMain">
         <header class="header">
@@ -209,13 +229,19 @@ $pdo = null;
     <div class="container-F">
         <div class="container-Footer footer">
             <div class="info">
-                <i class="fas fa-map-marker-alt"></i>
-                <p>Dirección: <?php echo $address; ?></p>
-                <i class="fas fa-phone"></i>
-                <p>Teléfono: <?php echo $phone; ?></p>
-                <i class="fas fa-envelope"></i>
-                <p>Email: <?php echo $email; ?></p>
+
+                <div class="icon-footer"> <i class="bi bi-geo-alt-fill"></i>
+                    <p>Dirección: <?php echo $address; ?></p>
+                </div>
+
+                <div class="icon-footer"> <i class="bi bi-telephone-fill"></i>
+                    <p>Teléfono: <?php echo $phone; ?></p>
+                </div>
+                <div class="icon-footer"> <i class="bi bi-envelope-fill"></i>
+                    <p>Email: <?php echo $email; ?></p>
+                </div>
             </div>
+
             <div class="logo">
                 <a href="">
                     <img src="/IMG/logo.png" alt=""></a>
@@ -228,16 +254,16 @@ $pdo = null;
             </div>
             <div class="form">
                 <h3>Contactanos</h3>
-                <form action="#" method="post">
+                <form class="form-Email" action="#" method="post">
                     <input type="text" name="nombre" placeholder="Nombre" required>
                     <input type="email" name="email" placeholder="Email" required>
                     <input type="tel" name="telefono" placeholder="Teléfono" required>
-                    <textarea name="mensaje" placeholder="Mensaje" required></textarea>
+                    <textarea name="mensaje" placeholder="Mensaje" required style="resize: none;"></textarea>
                     <button type="submit">Enviar</button>
                 </form>
             </div>
         </div>
-        <footer>
+        <footer class="footer_DR">
             <p>Derechos Reservados 2024</p>
         </footer>
     </div>
