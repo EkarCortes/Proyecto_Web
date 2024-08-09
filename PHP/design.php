@@ -1,78 +1,86 @@
-<!--DESIGN.PHP -->
-<?php
-session_start();
-if ($_SESSION['privilegio'] !== 'administrador') {
-    header("Location: login.php");
-    exit;
-}
-
-require 'conexion.php';
-
-// Obtener la configuración actual para mostrar en el formulario
-$query = "SELECT * FROM configuraciones LIMIT 1";
-$result = mysqli_query($conn, $query);
-$config = mysqli_fetch_assoc($result);
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personalizar Página</title>
+    <link rel="stylesheet" href="/Style/design.css">
 </head>
 <body>
-    <h2>Personalizar Página</h2>
-    <form action="design_Logic.php" method="post" enctype="multipart/form-data">
-        <div>
-            <label for="color_fondo">Color de Fondo:</label>
-            <input type="color" name="color_fondo" id="color_fondo" value="<?php echo $config['color_fondo']; ?>">
-        </div>
-        <div>
-            <label for="color_texto">Color de Texto:</label>
-            <input type="color" name="color_texto" id="color_texto" value="<?php echo $config['color_texto']; ?>">
-        </div>
-        <div>
-            <label for="icono_principal">Cambiar Ícono Principal:</label>
-            <input type="file" name="icono_principal" id="icono_principal">
-        </div>
-        <div>
-            <label for="icono_blanco">Cambiar Ícono Blanco:</label>
-            <input type="file" name="icono_blanco" id="icono_blanco">
-        </div>
-        <div>
-            <label for="imagen_banner">Cambiar Imagen del Banner:</label>
-            <input type="file" name="imagen_banner" id="imagen_banner">
-            <label for="mensaje_banner">Mensaje del Banner:</label>
-            <input type="text" name="mensaje_banner" id="mensaje_banner" value="<?php echo $config['mensaje_banner']; ?>">
-        </div>
-        <div>
-            <label for="imagen_quienes_somos">Imagen "Quienes Somos":</label>
-            <input type="file" name="imagen_quienes_somos" id="imagen_quienes_somos">
-            <label for="info_quienes_somos">Información "Quienes Somos":</label>
-            <textarea name="info_quienes_somos" id="info_quienes_somos" rows="4"><?php echo $config['info_quienes_somos']; ?></textarea>
-        </div>
-        <div>
-            <label for="facebook">URL de Facebook:</label>
-            <input type="url" name="facebook" id="facebook" value="<?php echo $config['facebook']; ?>">
-        </div>
-        <div>
-            <label for="instagram">URL de Instagram:</label>
-            <input type="url" name="instagram" id="instagram" value="<?php echo $config['instagram']; ?>">
-        </div>
-        <div>
-            <label for="youtube">URL de YouTube:</label>
-            <input type="url" name="youtube" id="youtube" value="<?php echo $config['youtube']; ?>">
-        </div>
-        <div>
-            <label for="direccion">Dirección:</label>
-            <input type="text" name="direccion" id="direccion" value="<?php echo $config['direccion']; ?>">
-            <label for="telefono">Teléfono:</label>
-            <input type="tel" name="telefono" id="telefono" value="<?php echo $config['telefono']; ?>">
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" value="<?php echo $config['email']; ?>">
-        </div>
-        <button type="submit">Guardar Cambios</button>
-    </form>
+    <div class="container">
+        <h1>Personalizar Página</h1>
+        <form action="/PHP_LOGIC/design_Logic.php" method="post">
+            <!-- Colores -->
+            <fieldset>
+                <legend>Colores de la Página</legend>
+                <label for="colorContainer1_3">Color contenedor 1 y 3:</label>
+                <input type="color" id="colorContainer1_3" name="colorContainer1_3"><br>
+
+                <label for="colorContainer2_4">Color contenedor 2 Y 4:</label>
+                <input type="color" id="colorContainer2_4" name="colorContainer2_4"><br>
+
+                <label for="colorFooter">Color Otros:</label>
+                <input type="color" id="colorFooter" name="colorFooter"><br>
+            </fieldset>
+
+            <!-- Íconos -->
+            <fieldset>
+                <legend>Íconos</legend>
+                <label for="iconPrincipalUrl">URL del Ícono Principal:</label>
+                <input type="text" id="iconPrincipalUrl" name="iconPrincipalUrl" placeholder="Ingrese la URL del ícono principal"><br>
+
+                <label for="iconFooterUrl">URL del Ícono Footer:</label>
+                <input type="text" id="iconFooterUrl" name="iconFooterUrl" placeholder="Ingrese la URL del ícono footer"><br>
+            </fieldset>
+
+            <!-- Imagen del Banner y Mensaje -->
+            <fieldset>
+                <legend>Banner</legend>
+                <label for="bannerImageUrl">URL de la Imagen del Banner:</label>
+                <input type="text" id="bannerImageUrl" name="bannerImageUrl" placeholder="Ingrese la URL de la imagen del banner"><br>
+
+                <label for="bannerMessage">Mensaje del Banner:</label>
+                <input type="text" id="bannerMessage" name="bannerMessage"><br>
+            </fieldset>
+
+            <!-- Información de Quiénes Somos -->
+            <fieldset>
+                <legend>Quiénes Somos</legend>
+                <label for="quienesSomosText">Texto:</label>
+                <textarea id="quienesSomosText" name="quienesSomosText"></textarea><br>
+
+                <label for="quienesSomosImageUrl">URL de la Imagen:</label>
+                <input type="text" id="quienesSomosImageUrl" name="quienesSomosImageUrl" placeholder="Ingrese la URL de la imagen"><br>
+            </fieldset>
+
+            <!-- Enlaces en Redes Sociales -->
+            <fieldset>
+                <legend>Redes Sociales</legend>
+                <label for="facebookLink">Facebook:</label>
+                <input type="url" id="facebookLink" name="facebookLink" placeholder="Ingrese el enlace a Facebook"><br>
+
+                <label for="instagramLink">Instagram:</label>
+                <input type="url" id="instagramLink" name="instagramLink" placeholder="Ingrese el enlace a Instagram"><br>
+
+                <label for="youtubeLink">YouTube:</label>
+                <input type="url" id="youtubeLink" name="youtubeLink" placeholder="Ingrese el enlace a YouTube"><br>
+            </fieldset>
+
+            <!-- Información de Contacto -->
+            <fieldset>
+                <legend>Información de Contacto</legend>
+                <label for="address">Dirección:</label>
+                <input type="text" id="address" name="address"><br>
+
+                <label for="phone">Teléfono:</label>
+                <input type="tel" id="phone" name="phone"><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"><br>
+            </fieldset>
+
+            <button type="submit">Guardar Cambios</button>
+        </form>
+    </div>
 </body>
 </html>

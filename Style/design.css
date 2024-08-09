@@ -1,4 +1,5 @@
-/* design.css */
+/* styles.css */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -8,94 +9,78 @@ body {
 
 .container {
     max-width: 800px;
-    margin: 50px auto;
+    margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: #fff;
     border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 h1 {
     text-align: center;
     color: #333;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
-/* Form Styles */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+fieldset {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #fafafa;
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
+legend {
+    font-size: 1.2em;
     font-weight: bold;
-    margin-bottom: 5px;
     color: #555;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="url"],
-input[type="file"],
-textarea,
-select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="tel"]:focus,
-input[type="url"]:focus,
-input[type="file"]:focus,
-textarea:focus,
-select:focus {
-    outline: none;
-    border-color: #007BFF;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+input[type="color"],
+input[type="file"],
+input[type="text"],
+input[type="url"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 textarea {
+    height: 100px;
     resize: vertical;
 }
 
-/* Button Styles */
-button[type="submit"] {
-    padding: 12px;
-    background-color: #007BFF;
-    color: #fff;
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
     border: none;
-    border-radius: 4px;
-    font-size: 16px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1em;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-button[type="submit"]:hover {
+button:hover {
     background-color: #0056b3;
 }
 
-/* Responsive Styles */
 @media (max-width: 600px) {
     .container {
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
-
-    button[type="submit"] {
-        font-size: 14px;
         padding: 10px;
     }
 }
