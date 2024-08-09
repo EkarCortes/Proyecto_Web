@@ -1,4 +1,3 @@
-<!-- register.php -->
 <?php
 session_start();
 require 'conexion.php'; // Archivo que contiene la conexión a la base de datos
@@ -18,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute(['correo' => $correo, 'usuario' => $usuario]);
     if ($stmt->rowCount() > 0) {
         // Error: El correo electrónico o el nombre de usuario ya están en uso
-        header("Location: register.php?error=EmailOrUsernameExists");
+        header("Location: crear_usuario.php?error=EmailOrUsernameExists");
         exit;
     }
 
@@ -38,16 +37,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result) {
         // Redirigir al inicio de sesión después de un registro exitoso
-        header("Location: /PHP/index_U.php");
+        header("Location: /PHP/crear_usuario.php");
         exit;
     } else {
         // Error al registrar el usuario
-        header("Location: register.php?error=registrationFailed");
+        header("Location: crear_usuario.php?error=registrationFailed");
         exit;
     }
 } else {
     // Si no es una solicitud POST, redirigir al registro
-    header("Location: register.php");
+    header("Location: crear_usuario.php");
     exit;
 }
 ?>
