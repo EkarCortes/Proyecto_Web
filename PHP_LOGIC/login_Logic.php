@@ -1,3 +1,4 @@
+<!-- login_logic.php -->
 <?php
 session_start();
 require 'conexion.php'; // Archivo que contiene la conexión a la base de datos

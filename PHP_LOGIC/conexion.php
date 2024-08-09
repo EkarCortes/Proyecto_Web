@@ -1,3 +1,4 @@
+<!-- conexion.php -->
 <?php
 $host = 'localhost';
 $db   = 'inmobiliaria';
