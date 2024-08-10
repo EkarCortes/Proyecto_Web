@@ -103,8 +103,8 @@ $pdo = null;
                 </div>
                 <nav>
                     <div class="login">
-                        <a href="/PHP/login.php"> <img src="/IMG/house_icon.png" alt=""></a>
-                        <a href="/PHP/login.php"> <img src="/IMG/user.png" alt=""></a>
+                        <a href="/PHP/post_property.php"> <img src="/IMG/house_icon.png" alt=""></a>
+                        <a href="/PHP/update_profile.php"> <img src="/IMG/user.png" alt=""></a>
                         <a href="/PHP/login.php"> <img src="/IMG/log-out.png" alt=""></a>
 
                     </div>

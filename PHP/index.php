@@ -1,5 +1,35 @@
 <?php
-require 'conexion.php'; // Archivo que contiene la conexión a la base de datos
+require 'conexion.php';
+
+// Función para obtener las últimas 3 propiedades por tipo
+function getLatestPropertiesByType($pdo, $type) {
+    $sql = "SELECT * FROM propiedades 
+            WHERE tipo = :type 
+            ORDER BY id DESC 
+            LIMIT 3";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['type' => $type]);
+    return $stmt->fetchAll();
+}
+
+// Función para obtener las últimas 3 propiedades destacadas por tipo
+function getHighlightedProperties($pdo, $type) {
+    $sql = "SELECT * FROM propiedades 
+            WHERE tipo = :type AND destacada = 1 
+            ORDER BY id DESC 
+            LIMIT 3";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['type' => $type]);
+    return $stmt->fetchAll();
+}
+
+// Obtener propiedades para cada tipo
+$latestSale = getLatestPropertiesByType($pdo, 'venta');
+$latestRental = getLatestPropertiesByType($pdo, 'alquiler');
+
+// Obtener propiedades destacadas para cada tipo
+$highlightedSale = getHighlightedProperties($pdo, 'venta');
+$highlightedRental = getHighlightedProperties($pdo, 'alquiler');
 
 // Consultar los datos desde la base de datos
 $sql = "SELECT * FROM personalizacion WHERE id = 1";
@@ -83,6 +113,10 @@ $pdo = null;
         .footer_DR {
             background-color: <?php echo $colorContainer1_3; ?>;
         }
+
+        .AboutUs {
+            background-color: <?php echo $colorContainer2_4; ?>;
+        }
     </style>
 </head>
 
@@ -140,28 +174,26 @@ $pdo = null;
         </div>
     </section>
 
+    <!-- Propiedades destacadas -->
     <section class="container-Properties">
         <h1 style="text-align: center; margin-bottom: 20px;">PROPIEDADES DESTACADAS</h1>
 
         <div class="container">
-            <div class="card">
-                <img src="/IMG/house.jpg" alt="Casa 1">
-                <h2>Casa Mora</h2>
-                <p>Ubicada en las faldas del volcán Arenal, contiene 1000 mts de terreno y uno de las mejores vistas del lugar</p>
-                <span>Precio: $65000</span>
-            </div>
-            <div class="card">
-                <img src="/IMG/house.jpg" alt="Casa 2">
-                <h2>Casa Mora</h2>
-                <p>Ubicada en las faldas del volcán Arenal, contiene 1000 mts de terreno y uno de las mejores vistas del lugar</p>
-                <span>Precio: $65000</span>
-            </div>
-            <div class="card">
-                <img src="/IMG/house.jpg" alt="Casa 3">
-                <h2>Casa Mora</h2>
-                <p>Ubicada en las faldas del volcán Arenal, contiene 1000 mts de terreno y uno de las mejores vistas del lugar</p>
-                <span>Precio: $65000</span>
-            </div>
+            <?php
+            // Merge and remove duplicates by ID
+            $highlightedProperties = array_merge($highlightedSale, $highlightedRental);
+            $highlightedProperties = array_unique($highlightedProperties, SORT_REGULAR);
+            
+            // Mostrar hasta 3 propiedades destacadas
+            $displayedProperties = array_slice($highlightedProperties, 0, 3);
+            foreach ($displayedProperties as $property): ?>
+                <div class="card">
+                    <img src="<?php echo htmlspecialchars($property['imagen']); ?>" alt="<?php echo htmlspecialchars($property['titulo']); ?>">
+                    <h2><?php echo htmlspecialchars($property['titulo']); ?></h2>
+                    <p><?php echo htmlspecialchars($property['descripcion']); ?></p>
+                    <span>Precio: <?php echo htmlspecialchars($property['precio']); ?></span>
+                </div>
+            <?php endforeach; ?>
         </div>
 
         <div style="text-align: center; margin-top: 20px;">
@@ -169,56 +201,39 @@ $pdo = null;
         </div>
     </section>
 
+    <!-- Propiedades en venta -->
     <section class="container-Sale">
         <h1 style="text-align: center; margin-bottom: 20px; color: black">PROPIEDADES EN VENTA</h1>
 
         <div class="container">
-            <div class="card">
-                <img src="/IMG/house.jpg" alt="Casa 1">
-                <h2>Casa Mora</h2>
-                <p>Ubicada en las faldas del volcán Arenal, contiene 1000 mts de terreno y uno de las mejores vistas del lugar</p>
-                <span>Precio: $65000</span>
-            </div>
-            <div class="card">
-                <img src="/IMG/house.jpg" alt="Casa 2">
-                <h2>Casa Mora</h2>
-                <p>Ubicada en las faldas del volcán Arenal, contiene 1000 mts de terreno y uno de las mejores vistas del lugar</p>
-                <span>Precio: $65000</span>
-            </div>
-            <div class="card">
-                <img src="/IMG/house.jpg" alt="Casa 3">
-                <h2>Casa Mora</h2>
-                <p>Ubicada en las faldas del volcán Arenal, contiene 1000 mts de terreno y uno de las mejores vistas del lugar</p>
-                <span>Precio: $65000</span>
-            </div>
+            <?php foreach ($latestSale as $property): ?>
+                <div class="card">
+                    <img src="<?php echo htmlspecialchars($property['imagen']); ?>" alt="<?php echo htmlspecialchars($property['titulo']); ?>">
+                    <h2><?php echo htmlspecialchars($property['titulo']); ?></h2>
+                    <p><?php echo htmlspecialchars($property['descripcion']); ?></p>
+                    <span>Precio: <?php echo htmlspecialchars($property['precio']); ?></span>
+                </div>
+            <?php endforeach; ?>
         </div>
 
         <div style="text-align: center; margin-top: 20px;">
             <a href="#" class="button">VER MAS...</a>
         </div>
     </section>
+
+    <!-- Propiedades en alquiler -->
     <section class="container-Properties">
         <h1 style="text-align: center; margin-bottom: 20px;">PROPIEDADES EN ALQUILER</h1>
 
         <div class="container">
-            <div class="card">
-                <img src="/IMG/house.jpg" alt="Casa 1">
-                <h2>Casa Mora</h2>
-                <p>Ubicada en las faldas del volcán Arenal, contiene 1000 mts de terreno y uno de las mejores vistas del lugar</p>
-                <span>Precio: $65000</span>
-            </div>
-            <div class="card">
-                <img src="/IMG/house.jpg" alt="Casa 2">
-                <h2>Casa Mora</h2>
-                <p>Ubicada en las faldas del volcán Arenal, contiene 1000 mts de terreno y uno de las mejores vistas del lugar</p>
-                <span>Precio: $65000</span>
-            </div>
-            <div class="card">
-                <img src="/IMG/house.jpg" alt="Casa 3">
-                <h2>Casa Mora</h2>
-                <p>Ubicada en las faldas del volcán Arenal, contiene 1000 mts de terreno y uno de las mejores vistas del lugar</p>
-                <span>Precio: $65000</span>
-            </div>
+            <?php foreach ($latestRental as $property): ?>
+                <div class="card">
+                    <img src="<?php echo htmlspecialchars($property['imagen']); ?>" alt="<?php echo htmlspecialchars($property['titulo']); ?>">
+                    <h2><?php echo htmlspecialchars($property['titulo']); ?></h2>
+                    <p><?php echo htmlspecialchars($property['descripcion']); ?></p>
+                    <span>Precio: <?php echo htmlspecialchars($property['precio']); ?></span>
+                </div>
+            <?php endforeach; ?>
         </div>
 
         <div style="text-align: center; margin-top: 20px;">
@@ -226,6 +241,8 @@ $pdo = null;
         </div>
     </section>
 
+    <!-- Pie de página -->
+    
     <div class="container-F">
         <div class="container-Footer footer">
             <div class="info">
@@ -267,6 +284,8 @@ $pdo = null;
             <p>Derechos Reservados 2024</p>
         </footer>
     </div>
+</body>
+
 </body>
 
 </html>

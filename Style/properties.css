@@ -1,11 +1,11 @@
 .container-Properties {
     background-color: #191970;
-    color: white;
+    color: rgb(255, 255, 255);
     font-family: sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 90vh;
     flex-direction: column;
 }
 .container-Sale {
@@ -15,7 +15,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 90vh;
     flex-direction: column;
 }
 

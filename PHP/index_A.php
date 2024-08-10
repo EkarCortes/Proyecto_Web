@@ -83,6 +83,9 @@ $pdo = null;
         .footer_DR {
             background-color: <?php echo $colorContainer1_3; ?>;
         }
+        .AboutUs {
+            background-color: <?php echo $colorContainer2_4; ?>;
+        }
     </style>
 </head>
 
@@ -103,7 +106,7 @@ $pdo = null;
                 </div>
                 <nav>
                     <div class="login"> 
-                        <a href="/PHP/login.php"> <img src="/IMG/user.png" alt=""></a> 
+                        <a href="/PHP/Admin_user.php"> <img src="/IMG/user.png" alt=""></a> 
                         <a href="/PHP/design.php"> <img src="/IMG/design.png" alt=""></a> 
                         <a href="/PHP/login.php"> <img src="/IMG/log-out.png" alt=""></a> 
                     </div>

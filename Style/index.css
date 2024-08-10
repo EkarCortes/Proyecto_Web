@@ -96,12 +96,20 @@ html, body {
 /* QUIENES SOMOS */
 
 .AboutUs {
-    padding: 20px;
-    background-color: #ffffff;
-    margin: 20px;
     border-radius: 10px;
     height: 400px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    color: rgb(0, 0, 0);
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.text p{
+    text-align: end;
+
 }
 
 .AboutUs h1 {
