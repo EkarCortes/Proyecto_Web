@@ -8,19 +8,29 @@
 </head>
 <body>
     <div class="container">
+    <button class="close-btn" onclick="window.history.back()">×</button>
         <h1>Personalizar Página</h1>
         <form action="/PHP_LOGIC/design_Logic.php" method="post">
             <!-- Colores -->
             <fieldset>
                 <legend>Colores de la Página</legend>
-                <label for="colorContainer1_3">Color contenedor 1 y 3:</label>
-                <input type="color" id="colorContainer1_3" name="colorContainer1_3"><br>
+                <div class="color-picker">
+                    <label for="colorContainer1_3">Color contenedor 1 y 3:</label>
+                    <input type="color" id="colorContainer1_3" name="colorContainer1_3">
+                    <span id="colorContainer1_3_value">#ffffff</span>
+                </div>
 
-                <label for="colorContainer2_4">Color contenedor 2 Y 4:</label>
-                <input type="color" id="colorContainer2_4" name="colorContainer2_4"><br>
+                <div class="color-picker">
+                    <label for="colorContainer2_4">Color contenedor 2 y 4:</label>
+                    <input type="color" id="colorContainer2_4" name="colorContainer2_4">
+                    <span id="colorContainer2_4_value">#ffffff</span>
+                </div>
 
-                <label for="colorFooter">Color Otros:</label>
-                <input type="color" id="colorFooter" name="colorFooter"><br>
+                <div class="color-picker">
+                    <label for="colorFooter">Color Otros:</label>
+                    <input type="color" id="colorFooter" name="colorFooter">
+                    <span id="colorFooter_value">#ffffff</span>
+                </div>
             </fieldset>
 
             <!-- Íconos -->
@@ -82,5 +92,12 @@
             <button type="submit">Guardar Cambios</button>
         </form>
     </div>
+    <script>
+           document.querySelectorAll('input[type="color"]').forEach(function(colorInput) {
+            colorInput.addEventListener('input', function() {
+                document.getElementById(colorInput.id + '_value').textContent = colorInput.value;
+            });
+        });
+    </script>
 </body>
 </html>

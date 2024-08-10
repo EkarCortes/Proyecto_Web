@@ -100,3 +100,4 @@ try {
 // Cerrar la conexión
 $pdo = null;
 ?>
+
