@@ -2,7 +2,8 @@
 require 'conexion.php';
 
 // Función para obtener las últimas 3 propiedades por tipo
-function getLatestPropertiesByType($pdo, $type) {
+function getLatestPropertiesByType($pdo, $type)
+{
     $sql = "SELECT * FROM propiedades 
             WHERE tipo = :type 
             ORDER BY id DESC 
@@ -13,7 +14,8 @@ function getLatestPropertiesByType($pdo, $type) {
 }
 
 // Función para obtener las últimas 3 propiedades destacadas por tipo
-function getHighlightedProperties($pdo, $type) {
+function getHighlightedProperties($pdo, $type)
+{
     $sql = "SELECT * FROM propiedades 
             WHERE tipo = :type AND destacada = 1 
             ORDER BY id DESC 
@@ -99,11 +101,11 @@ $pdo = null;
         }
 
         .container-Properties {
-            background-color: <?php echo $colorContainer1_3; ?>;
+            background-color: <?php echo $colorContainer2_4; ?>;
         }
 
         .container-Sale {
-            background-color: <?php echo $colorContainer2_4; ?>;
+            background-color: <?php echo $colorContainer1_3; ?>;
         }
 
         .logo a img {
@@ -111,11 +113,31 @@ $pdo = null;
         }
 
         .footer_DR {
-            background-color: <?php echo $colorContainer1_3; ?>;
+            background-color: <?php echo $colorContainer2_4; ?>;
         }
 
         .AboutUs {
+            background-color: <?php echo $colorContainer1_3; ?>;
+        }
+
+        .card {
+            background-color: <?php echo $colorContainer1_3; ?>;
+        }
+
+        .card2 {
             background-color: <?php echo $colorContainer2_4; ?>;
+        }
+
+        .textCard {
+            color: <?php echo $colorContainer1_3; ?>;
+        }
+
+        .textCard2 {
+            color: <?php echo $colorContainer2_4; ?>;
+        }
+
+        .button {
+            background-color: <?php echo $colorFooter; ?>;
         }
     </style>
 </head>
@@ -141,12 +163,12 @@ $pdo = null;
                             <img src="/IMG/log-in.png" alt=""></a>
                     </div>
                     <div class="navOptions">
-                        <ul>
+                    <ul>
                             <li><a href="#">INICIO |</a></li>
-                            <li><a href="#">QUIENES SOMOS |</a></li>
-                            <li><a href="#">ALQUILERES |</a></li>
-                            <li><a href="#">VENTAS |</a></li>
-                            <li><a href="#">CONTACTENOS</a></li>
+                            <li><a href="#AboutUs">QUIENES SOMOS |</a></li>
+                            <li><a href="/PHP/rent_Properties.php">ALQUILERES |</a></li>
+                            <li><a href="/PHP/sale_Properties.php">VENTAS |</a></li>
+                            <li><a href="#contac">CONTACTENOS</a></li>
                         </ul>
                     </div>
                     <div class="search">
@@ -160,10 +182,10 @@ $pdo = null;
                 </div>
             </div>
         </header>
-    </div>
+    </div> 
 
-    <section class="AboutUs">
-        <h1>QUIENES SOMOS</h1>
+    <section class="AboutUs ">
+        <h1 class="textCard2">QUIENES SOMOS</h1>
         <div class="content">
             <div class="text">
                 <p><?php echo $quienesSomosText; ?></p>
@@ -175,7 +197,7 @@ $pdo = null;
     </section>
 
     <!-- Propiedades destacadas -->
-    <section class="container-Properties">
+    <section class="container-Properties textCard">
         <h1 style="text-align: center; margin-bottom: 20px;">PROPIEDADES DESTACADAS</h1>
 
         <div class="container">
@@ -183,66 +205,69 @@ $pdo = null;
             // Merge and remove duplicates by ID
             $highlightedProperties = array_merge($highlightedSale, $highlightedRental);
             $highlightedProperties = array_unique($highlightedProperties, SORT_REGULAR);
-            
+
             // Mostrar hasta 3 propiedades destacadas
             $displayedProperties = array_slice($highlightedProperties, 0, 3);
             foreach ($displayedProperties as $property): ?>
                 <div class="card">
                     <img src="<?php echo htmlspecialchars($property['imagen']); ?>" alt="<?php echo htmlspecialchars($property['titulo']); ?>">
-                    <h2><?php echo htmlspecialchars($property['titulo']); ?></h2>
-                    <p><?php echo htmlspecialchars($property['descripcion']); ?></p>
-                    <span>Precio: <?php echo htmlspecialchars($property['precio']); ?></span>
+                    <h2 class="textCard2"><?php echo htmlspecialchars($property['titulo']); ?></h2>
+                    <p class="textCard2"><?php echo htmlspecialchars($property['descripcion']); ?></p>
+                    <span class="textCard2">Precio: <?php echo htmlspecialchars($property['precio']); ?></span>
                 </div>
             <?php endforeach; ?>
         </div>
 
-        <div style="text-align: center; margin-top: 20px;">
-            <a href="#" class="button">VER MAS...</a>
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="/PHP/featured_Properties.php" class="button">VER MAS...</a>
         </div>
+
     </section>
 
     <!-- Propiedades en venta -->
-    <section class="container-Sale">
-        <h1 style="text-align: center; margin-bottom: 20px; color: black">PROPIEDADES EN VENTA</h1>
+    <section class="container-Sale textCard2">
+        <h1 style="text-align: center; margin-bottom: 20px;">PROPIEDADES EN VENTA</h1>
 
         <div class="container">
             <?php foreach ($latestSale as $property): ?>
-                <div class="card">
+                <div class="card2">
                     <img src="<?php echo htmlspecialchars($property['imagen']); ?>" alt="<?php echo htmlspecialchars($property['titulo']); ?>">
-                    <h2><?php echo htmlspecialchars($property['titulo']); ?></h2>
-                    <p><?php echo htmlspecialchars($property['descripcion']); ?></p>
-                    <span>Precio: <?php echo htmlspecialchars($property['precio']); ?></span>
+                    <h2 class="textCard"><?php echo htmlspecialchars($property['titulo']); ?></h2>
+                    <p class="textCard"><?php echo htmlspecialchars($property['descripcion']); ?></p>
+                    <span class="textCard">Precio: <?php echo htmlspecialchars($property['precio']); ?></span>
                 </div>
             <?php endforeach; ?>
         </div>
 
-        <div style="text-align: center; margin-top: 20px;">
-            <a href="#" class="button">VER MAS...</a>
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="/PHP/sale_Properties.php" class="button">VER MAS...</a>
         </div>
+
     </section>
 
     <!-- Propiedades en alquiler -->
-    <section class="container-Properties">
+    <section class="container-Properties textCard ">
         <h1 style="text-align: center; margin-bottom: 20px;">PROPIEDADES EN ALQUILER</h1>
 
         <div class="container">
             <?php foreach ($latestRental as $property): ?>
                 <div class="card">
                     <img src="<?php echo htmlspecialchars($property['imagen']); ?>" alt="<?php echo htmlspecialchars($property['titulo']); ?>">
-                    <h2><?php echo htmlspecialchars($property['titulo']); ?></h2>
-                    <p><?php echo htmlspecialchars($property['descripcion']); ?></p>
-                    <span>Precio: <?php echo htmlspecialchars($property['precio']); ?></span>
+                    <h2 class="textCard2"><?php echo htmlspecialchars($property['titulo']); ?></h2>
+                    <p class="textCard2"><?php echo htmlspecialchars($property['descripcion']); ?></p>
+                    <span class="textCard2">Precio: <?php echo htmlspecialchars($property['precio']); ?></span>
                 </div>
             <?php endforeach; ?>
         </div>
 
-        <div style="text-align: center; margin-top: 20px;">
-            <a href="#" class="button">VER MAS...</a>
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="/PHP/rent_Properties.php" class="button">VER MAS...</a>
         </div>
+
     </section>
 
     <!-- Pie de página -->
-    
+
     <div class="container-F">
         <div class="container-Footer footer">
             <div class="info">
@@ -269,7 +294,7 @@ $pdo = null;
                     <a href="<?php echo $youtubeLink; ?>"><i class="bi bi-youtube"></i></a>
                 </div>
             </div>
-            <div class="form">
+            <div class="form" id="contac">
                 <h3>Contactanos</h3>
                 <form class="form-Email" action="#" method="post">
                     <input type="text" name="nombre" placeholder="Nombre" required>
@@ -280,7 +305,7 @@ $pdo = null;
                 </form>
             </div>
         </div>
-        <footer class="footer_DR">
+        <footer class="footer_DR textCard">
             <p>Derechos Reservados 2024</p>
         </footer>
     </div>
