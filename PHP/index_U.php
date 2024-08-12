@@ -158,7 +158,10 @@ $pdo = null;
                     </div>
                 </div>
                 <nav>
+                <div class="login">
                 <a href="/PHP/index.php"> <img src="/IMG/log-out.png" alt=""></a>
+                    </div>
+               
 
                     <div class="navOptions">
                     <ul>
@@ -182,7 +185,7 @@ $pdo = null;
         </header>
     </div>
 
-    <section class="AboutUs ">
+    <section class="AboutUs" id="AboutUs">
         <h1 class="textCard2">QUIENES SOMOS</h1>
         <div class="content">
             <div class="text">
