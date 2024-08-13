@@ -68,9 +68,10 @@
                 <input type="tel" id="phone" name="phone" placeholder="Ingrese el telefono"><br>
 
                 <input type="email" id="email" name="email" placeholder="Ingrese el email"><br>
+                <button type="submit">Guardar Cambios</button>
             </fieldset>
 
-4444        </form>
+      </form>
     </div>
     <script>
            document.querySelectorAll('input[type="color"]').forEach(function(colorInput) {
