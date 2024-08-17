@@ -26,7 +26,9 @@ if ($userId) {
     <link rel="stylesheet" href="/Style/update_profile.css">
 </head>
 <body>
+    
     <div class="container">
+    <button class="close-btn" onclick="window.history.back()">×</button>
         <h1>Actualizar Datos Personales</h1>
         <form action="/PHP_LOGIC/update_profile_logic.php" method="POST">
             <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($userId); ?>" />

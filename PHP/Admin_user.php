@@ -8,6 +8,8 @@
 </head>
 <body>
     <div class="container">
+    <button class="close-btn" onclick="window.history.back()">×</button>
+
         <h1>Gestión de Usuarios</h1>
         <div class="buttons">
             <button onclick="window.location.href='crear_usuario.php'">Crear nuevo usuario</button>

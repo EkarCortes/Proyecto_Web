@@ -3,69 +3,72 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     margin: 0;
     background-color: #0A1A2D;
 }
-
 .container {
+    margin-top: 20px;
     width: 100%;
-    max-width: 500px;
+    max-width: auto;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     box-sizing: border-box;
+    background-color: #ffffff;
 }
-
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+button {
+    margin-top: 15px;
+}
 h1 {
     margin-bottom: 20px;
     color: #0A1A2D;
     text-align: center;
 }
-
 form {
     display: flex;
     flex-direction: column;
 }
-
-input, button {
+input, select, button {
     margin-bottom: 15px;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
 }
-
-input:focus {
+input:focus, select:focus {
     border-color: #007bff;
     outline: none;
 }
 
-button {
+
+thead {
     background-color: #0A1A2D;
-    margin: 0 auto;
-    color: #ffffff;
-    border: none;
-    width: 20%;
-    cursor: pointer;
-    font-size: 16px;
+    color: #fff;
+}
+
+.btn{
+    color: #050505;
     transition: background-color 0.3s;
+
 }
-
-button:hover {
-    background-color: #0056b3;
-}
-
-
-label {
-    margin-bottom: 5px;
+.btn:hover{
     color: #0A1A2D;
-    font-weight: bold;
 }
-
-
+.form-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+}
 .close-btn {
-    width: 30px;
     position: absolute;
     top: 10px;
     right: 10px;
@@ -79,3 +82,14 @@ label {
     color: #0A1A2D;
     background-color: white;
 }
+.modal-content {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.actuali{
+ margin: 0 auto;
+ width: 20%;
+}
+
+

@@ -171,9 +171,10 @@ $pdo = null;
                             <li><a href="#contac">CONTACTENOS</a></li>
                         </ul>
                     </div>
-                    <div class="search">
-                        <input type="text" placeholder="Buscar...">
-                    </div>
+                    <form action="" method="POST" class="search-form">
+                     <input type="text" name="busqueda" placeholder="Buscar por tipo, título o descripción">
+                     <button type="submit">Buscar</button>
+                     </form>
                 </nav>
             </div>
             <div class="hero">
