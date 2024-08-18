@@ -291,12 +291,13 @@ $pdo = null;
             </div>
             <div class="form" id="contac">
                 <h3>Contactanos</h3>
-                <form class="form-Email" action="#" method="post">
-                    <input type="text" name="nombre" placeholder="Nombre" required>
-                    <input type="email" name="email" placeholder="Email" required>
-                    <input type="tel" name="telefono" placeholder="Teléfono" required>
-                    <textarea name="mensaje" placeholder="Mensaje" required style="resize: none;"></textarea>
-                    <button type="submit">Enviar</button>
+                <form class="form-Email" action="/PHP_LOGIC/submit_form.php" method="POST">
+                     <input type="text" name="nombre" placeholder="Nombre" required>
+                     <input type="email" name="email" placeholder="Email" required>
+                     <input type="tel" name="telefono" placeholder="Teléfono" required>
+                     <textarea name="mensaje" placeholder="Mensaje" required style="resize: none;"></textarea>
+                     <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+                     <button type="submit">Enviar</button>
                 </form>
             </div>
         </div>

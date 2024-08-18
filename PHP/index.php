@@ -171,10 +171,11 @@ $pdo = null;
                             <li><a href="#contac">CONTACTENOS</a></li>
                         </ul>
                     </div>
-                    <form action="" method="POST" class="search-form">
-                     <input type="text" name="busqueda" placeholder="Buscar por tipo, título o descripción">
-                     <button type="submit">Buscar</button>
+                    <form action="#" method="POST" class="search-form">
+                        <input type="text" name="busqueda" placeholder="Buscar por tipo, título o descripción">
+                        <button type="submit">Buscar</button>
                      </form>
+
                 </nav>
             </div>
             <div class="hero">
@@ -296,22 +297,22 @@ $pdo = null;
                 </div>
             </div>
             <div class="form" id="contac">
-                <h3>Contactanos</h3>
-                <form class="form-Email" action="#" method="post">
-                    <input type="text" name="nombre" placeholder="Nombre" required>
-                    <input type="email" name="email" placeholder="Email" required>
-                    <input type="tel" name="telefono" placeholder="Teléfono" required>
-                    <textarea name="mensaje" placeholder="Mensaje" required style="resize: none;"></textarea>
-                    <button type="submit">Enviar</button>
-                </form>
-            </div>
+    <h3>Contáctanos</h3>
+    <form class="form-Email" action="/PHP_LOGIC/submit_form.php" method="POST">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="tel" name="telefono" placeholder="Teléfono" required>
+        <textarea name="mensaje" placeholder="Mensaje" required style="resize: none;"></textarea>
+        <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+        <button type="submit">Enviar</button>
+    </form>
+</div>
         </div>
         <footer class="footer_DR textCard">
             <p>Derechos Reservados 2024</p>
         </footer>
     </div>
-</body>
-
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 
 </html>
