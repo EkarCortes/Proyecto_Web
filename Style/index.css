@@ -183,3 +183,17 @@ html, body {
     
     margin-bottom: 200px;
 }
+
+.search button{
+    border: none;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    height: 30px;
+    width: 50px;
+    border-radius: 6px;
+    margin-left: 10px;
+}
+
+.search button:hover{
+    background-color: #a4aaa8;
+}

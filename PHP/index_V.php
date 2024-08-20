@@ -34,9 +34,11 @@ include './designdb.php';
                         </ul>
                     </div>
                     <div class="search">
-                        <input type="text" placeholder="Buscar...">
-                    </div>
-                </nav>
+                    <form action="./search.php" method="GET">
+                        <input type="text" name="searchQuery" placeholder="Buscar...">
+                        <button type="submit">Buscar</button>
+                    </form>
+                </div>
             </div>
             <div class="hero">
                 <div class="hero-text">
