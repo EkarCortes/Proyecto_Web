@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     } else {
         // Error de autenticación
-        header("Location: login.php?error=InvalidCredentials");
+        header("Location: /PHP/login.php");
         exit;
     }
 } else {

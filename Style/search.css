@@ -1,0 +1,69 @@
+/* Estilos generales para el contenedor de propiedades */
+body{
+    background-color: #f0f0f0; /* Fondo claro para la página */
+    margin: 0;                 /* Eliminar márgenes predeterminados */
+    padding: 0;                /* Eliminar relleno predeterminado */
+}
+.containerMain {
+    background-color: #7b7bd4; /* Fondo oscuro para la sección */
+    font-family: sans-serif;   /* Fuente de texto */
+    display: flex;             /* Usar Flexbox para centrar el contenido */
+    justify-content: center;   /* Centrar horizontalmente */
+    align-items: center;       /* Centrar verticalmente */
+    min-height: 100vh;  
+    width: 100%;        /* Altura mínima de la pantalla completa */
+    flex-direction: column;    /* Organizar los elementos en columna */
+    padding: 20px;            /* Espaciado interno */
+}
+
+/* Estilos para el contenedor de resultados */
+.container {
+    display: flex;             /* Usar Flexbox para el diseño */
+    flex-direction: row;       /* Colocar las tarjetas en fila */
+    justify-content: center;   /* Centrar horizontalmente */
+    align-items: center;       /* Centrar verticalmente */
+    flex-wrap: wrap;           /* Ajustar el contenido al tamaño de la pantalla */
+    gap: 20px;                 /* Espacio entre tarjetas */
+}
+
+/* Estilo general para las tarjetas */
+.card {
+    background-color: #dddddd; /* Fondo de las tarjetas */
+    padding: 20px;            /* Espaciado interno */
+    border-radius: 10px;      /* Bordes redondeados */
+    width: 300px;             /* Ancho fijo de la tarjeta */
+    text-align: center;       /* Centrar el texto */
+    color: #000000;           /* Color del texto */
+}
+
+/* Estilo para las imágenes dentro de las tarjetas */
+.card img {
+    width: 100%;              /* Imagen a ancho completo */
+    height: 200px;           /* Altura fija para la imagen */
+    object-fit: cover;        /* Ajustar la imagen para cubrir el área */
+    border-radius: 10px;     /* Bordes redondeados en la imagen */
+}
+
+/* Estilo para los títulos dentro de las tarjetas */
+.card h2 {
+    margin-top: 10px;        /* Margen superior */
+}
+
+/* Estilo para los párrafos dentro de las tarjetas */
+.card p {
+    margin-top: 5px;         /* Margen superior */
+}
+
+/* Estilo para el texto resaltado dentro de las tarjetas */
+.card span {
+    font-weight: bold;       /* Texto en negrita */
+}
+
+/* Estilo para los botones */
+.button {
+    color: white;            /* Color del texto */
+    padding: 10px 20px;      /* Espaciado interno del botón */
+    border-radius: 5px;      /* Bordes redondeados */
+    text-decoration: none;   /* Sin subrayado */
+    margin-top: 10px;        /* Margen superior */
+}

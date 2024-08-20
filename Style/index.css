@@ -10,7 +10,6 @@ html, body {
 }
 
 .containerMain {
-    background-image: url('/IMG/house_2.jpg');
     background-size: cover;
     height: 100%;
 }
@@ -173,7 +172,6 @@ html, body {
     align-items: center;
     text-align: center;
     color: white;
-    margin-top: 155px;
     font-size: 20px;
     font-weight: bold;
     text-shadow: 2px 2px 4px #000000;
@@ -181,3 +179,7 @@ html, body {
 
 }
 
+.hero h1{
+    
+    margin-bottom: 200px;
+}
