@@ -46,6 +46,8 @@ include './designdb.php';
                 </div>
             </div>
         </header>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     </div >
 
     <?php
