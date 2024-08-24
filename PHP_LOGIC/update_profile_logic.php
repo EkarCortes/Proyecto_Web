@@ -22,9 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
 
         if ($stmt->execute()) {
-            header("Location: update_profile.php?status=success");
+            header("Location: /PHP/update_profile.php");
         } else {
-            header("Location: update_profile.php?status=error");
+            header("Location: /PHP/update_profile.php");
         }
     } catch (PDOException $e) {
         echo "Error en la base de datos: " . $e->getMessage();

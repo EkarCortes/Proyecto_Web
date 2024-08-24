@@ -92,7 +92,7 @@ try {
     $stmt = $pdo->prepare($sql);
     $stmt->execute($params);
 
-    echo "Los cambios se guardaron correctamente.";
+    header("Location: /PHP/design.php");
 } catch (PDOException $e) {
     echo "Error al guardar los cambios: " . $e->getMessage();
 }
